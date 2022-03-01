@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F843E73-E48C-44CA-A0EF-BC1AA1ED02CE}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LibElite</RootNamespace>
+    <AssemblyName>LibElite</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(SolutionDir)\Build\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>$(SolutionDir)\Shell\Frostworks\CodeStyle.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(SolutionDir)\Build\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>$(SolutionDir)\Shell\Frostworks\CodeStyle.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <OutputPath>$(SolutionDir)\Build\Debug</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>$(SolutionDir)\Shell\Frostworks\CodeStyle.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <OutputPath>$(SolutionDir)\Build\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>$(SolutionDir)\Shell\Frostworks\CodeStyle.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\ExplorationUtils.cs" />
+    <Compile Include="Helper\FileSystemPoller.cs" />
+    <Compile Include="Helper\JournalUtils.cs" />
+    <Compile Include="EDDN\EDDNListener.cs" />
+    <Compile Include="EDDN\Schemes\Blackmarket.cs" />
+    <Compile Include="EDDN\Schemes\Commodity.cs" />
+    <Compile Include="EDDN\Schemes\Journal.cs" />
+    <Compile Include="EDDN\Schemes\MessageHeader.cs" />
+    <Compile Include="EDDN\Schemes\Outfitting.cs" />
+    <Compile Include="EDDN\Schemes\Shipyard.cs" />
+    <Compile Include="EDSM\Dumps\StationDump.cs" />
+    <Compile Include="EDSM\Dumps\SystemDump.cs" />
+    <Compile Include="EDSM\EDSM.cs" />
+    <Compile Include="EDSM\EliteServerStatus.cs" />
+    <Compile Include="EDSM\Types\Body.cs" />
+    <Compile Include="EDSM\Types\MarketInfo.cs" />
+    <Compile Include="EDSM\Types\NearbySystems.cs" />
+    <Compile Include="EDSM\Types\SalesInfo.cs" />
+    <Compile Include="EDSM\Types\ServerStatus.cs" />
+    <Compile Include="EDSM\Types\Station.cs" />
+    <Compile Include="EDSM\Types\SurroundingInfo.cs" />
+    <Compile Include="EDSM\Types\SystemDeaths.cs" />
+    <Compile Include="EDSM\Types\SystemInfo.cs" />
+    <Compile Include="EDSM\Types\SystemDetailInfo.cs" />
+    <Compile Include="EDSM\Types\ValuableBody.cs" />
+    <Compile Include="EVADB\EVAStation.cs" />
+    <Compile Include="EVADB\EVASystem.cs" />
+    <Compile Include="Helper\LINQExtensions.cs" />
+    <Compile Include="Helper\Vector3.cs" />
+    <Compile Include="Logging\ConsoleWriter.cs" />
+    <Compile Include="Logging\LogEntry.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\Logging.cs" />
+    <Compile Include="Logging\LogWriterBase.cs" />
+    <Compile Include="Logging\TextFileWriter.cs" />
+    <Compile Include="PilotJournal\Attributes\AffectsMaterialsAttribute.cs" />
+    <Compile Include="PilotJournal\Converter\EventTypeCreationConverter.cs" />
+    <Compile Include="PilotJournal\Converter\ScanMaterialsConverter.cs" />
+    <Compile Include="PilotJournal\EventBase.cs" />
+    <Compile Include="PilotJournal\Events\BaseClasses\JumpEvent.cs" />
+    <Compile Include="PilotJournal\Events\Combat\Bounty.cs" />
+    <Compile Include="PilotJournal\Events\Combat\CapShipBond.cs" />
+    <Compile Include="PilotJournal\Events\Combat\Died.cs" />
+    <Compile Include="PilotJournal\Events\Combat\EscapeInterdiction.cs" />
+    <Compile Include="PilotJournal\Events\Combat\FactionKillBond.cs" />
+    <Compile Include="PilotJournal\Events\Combat\FighterDestroyed.cs" />
+    <Compile Include="PilotJournal\Events\Combat\HeatDamage.cs" />
+    <Compile Include="PilotJournal\Events\Combat\HeatWarning.cs" />
+    <Compile Include="PilotJournal\Events\Combat\HullDamage.cs" />
+    <Compile Include="PilotJournal\Events\Combat\Interdicted.cs" />
+    <Compile Include="PilotJournal\Events\Combat\Interdiction.cs" />
+    <Compile Include="PilotJournal\Events\Combat\PVPKill.cs" />
+    <Compile Include="PilotJournal\Events\Combat\ShieldState.cs" />
+    <Compile Include="PilotJournal\Events\Combat\ShipTargeted.cs" />
+    <Compile Include="PilotJournal\Events\Combat\SRVDestroyed.cs" />
+    <Compile Include="PilotJournal\Events\Combat\UnderAttack.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\BuyExplorationData.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\CodexEntry.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\DiscoveryScan.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\FSSAllBodiesFound.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\FSSDiscoveryScan.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\FSSSignalDiscovered.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\MaterialCollected.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\MaterialDiscarded.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\MaterialDiscovered.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\MultiSellExplorationData.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\NavBeaconScan.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\SAAScanComplete.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\SAASignalsFound.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\Scan.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\Screenshot.cs" />
+    <Compile Include="PilotJournal\Events\Exploration\SellExplorationData.cs" />
+    <Compile Include="PilotJournal\Events\FileHeader.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierDockingPermission.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierEventBase.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierJumpCancelled.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierTradeOrder.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierModulePack.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierShipPack.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierFinance.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierCrewServices.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierDepositFuel.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierBankTransfer.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierCancelDecomission.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierDecomission.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierJumpRequest.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierBuy.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierStats.cs" />
+    <Compile Include="PilotJournal\Events\FleetCarriers\CarrierJump.cs" />
+    <Compile Include="PilotJournal\Events\JournalNotifications.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\SuitLoadout.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\UseConsumable.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\UpgradeWeapon.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\UpgradeSuit.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\TradeMicroResources.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\TransferMicroResources.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\SwitchSuitLoadout.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\ShipLockerMaterials.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\SellWeapon.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\SellSuit.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\SellOrganicData.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\SellMicroResources.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\ScanOrganic.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\RenameSuitLoadout.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\LoadoutRemoveModule.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\LoadoutEquipModule.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\Embark.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\DropShipDeploy.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\DropItems.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\Disembark.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\DeleteSuitLoadout.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\CreateSuitLoadout.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\CollectItems.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\CancelTaxi.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\CancelDropship.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\BuyWeapon.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\BuySuit.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\BuyMicroresources.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\BookTaxi.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\BookDropship.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\BackpackChange.cs" />
+    <Compile Include="PilotJournal\Events\Odyssey\Backpack.cs" />
+    <Compile Include="PilotJournal\Events\Other\ProspectedAsteroid.cs" />
+    <Compile Include="PilotJournal\Events\Other\AfmuRepairs.cs" />
+    <Compile Include="PilotJournal\Events\Other\ApproachSettlement.cs" />
+    <Compile Include="PilotJournal\Events\Other\ChangeCrewRole.cs" />
+    <Compile Include="PilotJournal\Events\Other\CockpitBreached.cs" />
+    <Compile Include="PilotJournal\Events\Other\CommitCrime.cs" />
+    <Compile Include="PilotJournal\Events\Other\Continued.cs" />
+    <Compile Include="PilotJournal\Events\Other\CrewLaunchFighter.cs" />
+    <Compile Include="PilotJournal\Events\Other\CrewMemberJoins.cs" />
+    <Compile Include="PilotJournal\Events\Other\CrewMemberQuits.cs" />
+    <Compile Include="PilotJournal\Events\Other\CrewMemberRoleChange.cs" />
+    <Compile Include="PilotJournal\Events\Other\CrimeVictim.cs" />
+    <Compile Include="PilotJournal\Events\Other\DatalinkScan.cs" />
+    <Compile Include="PilotJournal\Events\Other\DatalinkVoucher.cs" />
+    <Compile Include="PilotJournal\Events\Other\DataScanned.cs" />
+    <Compile Include="PilotJournal\Events\Other\DockFighter.cs" />
+    <Compile Include="PilotJournal\Events\Other\DockSRV.cs" />
+    <Compile Include="PilotJournal\Events\Other\EndCrewSession.cs" />
+    <Compile Include="PilotJournal\Events\Other\FighterRebuilt.cs" />
+    <Compile Include="PilotJournal\Events\Other\FuelScoop.cs" />
+    <Compile Include="PilotJournal\Events\Other\JetConeBoost.cs" />
+    <Compile Include="PilotJournal\Events\Other\JetConeDamage.cs" />
+    <Compile Include="PilotJournal\Events\Other\JoinACrew.cs" />
+    <Compile Include="PilotJournal\Events\Other\KickCrewMember.cs" />
+    <Compile Include="PilotJournal\Events\Other\LaunchDrone.cs" />
+    <Compile Include="PilotJournal\Events\Other\LaunchFighter.cs" />
+    <Compile Include="PilotJournal\Events\Other\LaunchSRV.cs" />
+    <Compile Include="PilotJournal\Events\Other\ModuleInfo.cs" />
+    <Compile Include="PilotJournal\Events\Other\NpcCrewPaidWage.cs" />
+    <Compile Include="PilotJournal\Events\Other\NpcCrewRank.cs" />
+    <Compile Include="PilotJournal\Events\Other\Promotion.cs" />
+    <Compile Include="PilotJournal\Events\Other\QuitACrew.cs" />
+    <Compile Include="PilotJournal\Events\Other\RebootRepair.cs" />
+    <Compile Include="PilotJournal\Events\Other\ReceiveText.cs" />
+    <Compile Include="PilotJournal\Events\Other\RepairDrone.cs" />
+    <Compile Include="PilotJournal\Events\Other\ReservoirReplenished.cs" />
+    <Compile Include="PilotJournal\Events\Other\CargoTransfer.cs" />
+    <Compile Include="PilotJournal\Events\Other\Resurrect.cs" />
+    <Compile Include="PilotJournal\Events\Other\Scanned.cs" />
+    <Compile Include="PilotJournal\Events\Other\SelfDestruct.cs" />
+    <Compile Include="PilotJournal\Events\Other\SendText.cs" />
+    <Compile Include="PilotJournal\Events\Other\Shutdown.cs" />
+    <Compile Include="PilotJournal\Events\Other\Synthesis.cs" />
+    <Compile Include="PilotJournal\Events\Other\SystemsShutdown.cs" />
+    <Compile Include="PilotJournal\Events\Other\USSDrop.cs" />
+    <Compile Include="PilotJournal\Events\Other\VehicleSwitch.cs" />
+    <Compile Include="PilotJournal\Events\Other\WingAdd.cs" />
+    <Compile Include="PilotJournal\Events\Other\WingInvite.cs" />
+    <Compile Include="PilotJournal\Events\Other\WingJoin.cs" />
+    <Compile Include="PilotJournal\Events\Other\WingLeave.cs" />
+    <Compile Include="PilotJournal\Events\Powerplay\PowerplayCollect.cs" />
+    <Compile Include="PilotJournal\Events\Powerplay\PowerplayDefect.cs" />
+    <Compile Include="PilotJournal\Events\Powerplay\PowerplayDeliver.cs" />
+    <Compile Include="PilotJournal\Events\Powerplay\PowerplayFastTrack.cs" />
+    <Compile Include="PilotJournal\Events\Powerplay\PowerplayJoin.cs" />
+    <Compile Include="PilotJournal\Events\Powerplay\PowerplayLeave.cs" />
+    <Compile Include="PilotJournal\Events\Powerplay\PowerplaySalary.cs" />
+    <Compile Include="PilotJournal\Events\Powerplay\PowerplayVote.cs" />
+    <Compile Include="PilotJournal\Events\Powerplay\PowerplayVoucher.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\AppliedToSquadron.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\DisbandedSquadron.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\InvitedToSquadron.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\JoinedSquadron.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\KickedFromSquadron.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\LeftSquadron.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\SharedBookmarkToSquadron.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\SquadronCreated.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\SquadronDemotion.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\SquadronPromotion.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\SquadronStatup.cs" />
+    <Compile Include="PilotJournal\Events\Squadrons\WonATrophyForSquadron.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Cargo.cs" />
+    <Compile Include="PilotJournal\Events\Startup\ClearSavedGame.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Commander.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Friends.cs" />
+    <Compile Include="PilotJournal\Events\Startup\LoadGame.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Loadout.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Materials.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Missions.cs" />
+    <Compile Include="PilotJournal\Events\Other\Music.cs" />
+    <Compile Include="PilotJournal\Events\Startup\NewCommander.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Passengers.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Powerplay.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Progress.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Rank.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Reputation.cs" />
+    <Compile Include="PilotJournal\Events\Startup\Statistics.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\BuyAmmo.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\BuyDrones.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\CargoDepot.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\CommunityGoal.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\CommunityGoalDiscard.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\CommunityGoalJoin.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\CommunityGoalReward.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\CrewAssign.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\CrewFire.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\CrewHire.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\EngineerApply.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\EngineerContribution.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\EngineerCraft.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\EngineerLegacyConvert.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\EngineerProgress.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\FetchRemoteModule.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\Market.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\MassModuleStore.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\MaterialTrade.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\MissionAbandoned.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\MissionAccepted.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\MissionCompleted.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\MissionFailed.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\MissionRedirected.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ModuleBuy.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ModuleRetrieve.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ModuleSell.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ModuleSellRemote.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ModuleStore.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ModuleSwap.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\Outfitting.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\PayBounties.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\PayFines.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\PayLegacyFines.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\RedeemVoucher.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\RefuelAll.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\RefuelPartial.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\Repair.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\RepairAll.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\RestockVehicle.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ScientificResearch.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\SearchAndRescue.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\SellDrones.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\SellShipOnRebuy.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\SetUserShipName.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\Shipyard.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ShipyardBuy.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ShipyardNew.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ShipyardSell.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ShipyardSwap.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\ShipyardTransfer.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\StoredModules.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\StoredShips.cs" />
+    <Compile Include="PilotJournal\Events\StationServices\TechnologyBroker.cs" />
+    <Compile Include="PilotJournal\Events\Trade\AsteroidCracked.cs" />
+    <Compile Include="PilotJournal\Events\Trade\BuyTradeData.cs" />
+    <Compile Include="PilotJournal\Events\Trade\CollectCargo.cs" />
+    <Compile Include="PilotJournal\Events\Trade\EjectCargo.cs" />
+    <Compile Include="PilotJournal\Events\Trade\MarketBuy.cs" />
+    <Compile Include="PilotJournal\Events\Trade\MarketSell.cs" />
+    <Compile Include="PilotJournal\Events\Trade\MiningRefined.cs" />
+    <Compile Include="PilotJournal\Events\Travel\ApproachBody.cs" />
+    <Compile Include="PilotJournal\Events\Travel\Docked.cs" />
+    <Compile Include="PilotJournal\Events\Travel\DockingCancelled.cs" />
+    <Compile Include="PilotJournal\Events\Travel\DockingDenied.cs" />
+    <Compile Include="PilotJournal\Events\Travel\DockingGranted.cs" />
+    <Compile Include="PilotJournal\Events\Travel\DockingRequested.cs" />
+    <Compile Include="PilotJournal\Events\Travel\DockingTimeout.cs" />
+    <Compile Include="PilotJournal\Events\Travel\FSDJump.cs" />
+    <Compile Include="PilotJournal\Events\Travel\FSDTarget.cs" />
+    <Compile Include="PilotJournal\Events\Travel\LeaveBody.cs" />
+    <Compile Include="PilotJournal\Events\Travel\NavRoute.cs" />
+    <Compile Include="PilotJournal\Events\Travel\Liftoff.cs" />
+    <Compile Include="PilotJournal\Events\Travel\Location.cs" />
+    <Compile Include="PilotJournal\Events\Travel\StartJump.cs" />
+    <Compile Include="PilotJournal\Events\Travel\SupercruiseEntry.cs" />
+    <Compile Include="PilotJournal\Events\Travel\SupercruiseExit.cs" />
+    <Compile Include="PilotJournal\Events\Travel\Touchdown.cs" />
+    <Compile Include="PilotJournal\Events\Travel\Undocked.cs" />
+    <Compile Include="PilotJournal\JournalReader.cs" />
+    <Compile Include="PilotJournal\JournalTypes.cs" />
+    <Compile Include="PilotJournal\JournalWatcher.cs" />
+    <Compile Include="PilotJournal\Status.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Flurl.Http">
+      <Version>3.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="Ionic.Zlib">
+      <Version>1.9.1.5</Version>
+    </PackageReference>
+    <PackageReference Include="NetMQ">
+      <Version>4.0.1.8</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
